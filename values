@@ -1,0 +1,27 @@
+{{ server.server_address }}
+
+{{ server.appsCount }}
+{% for app in server.apps %}
+    {{ app }}
+{% endfor %}
+
+{% for permission in server.permissions %}
+    {{ permission.name }}
+    {{ permission.count }} 
+    {{ permission.level }} 
+    {{ permission.costs }} 
+    {{ permission.removed }}
+{% endfor %}
+
+{{ server.trackerCount }}
+{% for tracker in server.trackers %}
+    {{ tracker.name }}
+    {{ tracker.count }}
+{% endfor %}
+
+{{ server.uniquePermissionCount }}
+{{ server.unknownPermissionCount }}
+{{ server.dangerousPermissionCount }}
+{{ server.costsMoneyCount }}
+{{ server.normalPermissionCount }}
+{{ server.removedCount }}
