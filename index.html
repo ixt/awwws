@@ -132,7 +132,7 @@ function makeMyMap(error, data, amazon) {
         .attr("class", "server-link")
         .attr("href", "#")
         .on("click", function (d) {
-            $("iframe").attr("src", d.properties.address + "/");
+            $("iframe").attr("src", d.properties.address + ".html");
             $("svg").fadeOut('slow');
             $(".popup").fadeIn('slow');
         })
