@@ -11,7 +11,6 @@
     .overlay{
        color: white;
        font-family: 'Grotesk', 'Helvetica', 'Arial', sans-serif;
-       position: absolute;
     }
     
     body {
@@ -47,8 +46,15 @@
     }
     
     @media screen and (orientation:landscape){
-      body {
-        background: #111;
+      * {
+          overflow-x: auto;
+          overflow-y: hidden;
+      }
+    }
+    @media screen and (orientation:portrait){
+      * {
+          overflow-x: hidden;
+          overflow-y: auto;
       }
     }
 
@@ -59,7 +65,7 @@
     hr {
         width: 80vw;
         size: 1em;
-		position: fixed;
+		position: absolute;
     }
 	.top-bar { top: 10px;}
 	.bottom-bar {bottom: 10px;}
@@ -76,7 +82,7 @@ This might help in other cases of running js scripts locally, but should not be 
 <div class="overlay">
     <hr class="top-bar">
         <a href="/about" style="font-size:3em;color:#ff4500;"> ? </a>
-		<h1 style="bottom:0;position:fixed;"> Amazon, What Would We See?  </h1>
+		<h1 style="bottom:0;position:absolute;"> Amazon, What Would We See?  </h1>
     <hr class="bottom-bar">
 </div>
 <svg width="1800" height="900"></svg>
@@ -148,14 +154,10 @@ function makeMyMap(error, data, amazon) {
         
 }
 if(window.innerHeight > window.innerWidth){
-    svg.attr("transform", "translate( -700, -100), rotate(90)");
-    document.body.style['overflow-y'] = 'auto';
-    document.body.style['overflow-x'] = 'hidden';
+    svg.attr("transform", "translate( -700, -1000), rotate(90), scale(0.4)");
 }
 if(window.innerHeight < window.innerWidth){
     svg.attr("transform", "translate( -200, -100)");
-    document.body.style['overflow-y'] = 'hidden';
-    document.body.style['overflow-x'] = 'auto';
 }
 $(document).ready(function () {
     $(".popup").hide();
